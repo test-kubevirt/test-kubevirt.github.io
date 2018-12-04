@@ -23,7 +23,7 @@ collections:
     output: true
     permalink: /:collection/:path
 
-plugins: [jekyll-paginate, jekyll-asciidoc]
+plugins: [jekyll-paginate, jekyll-asciidoc, jekyll-optional-front-matter]
 paginate: 5
 paginate_path: "/blogs/page:num"
 
@@ -32,3 +32,13 @@ defaults:
       path: "assets/img"
     values:
       image: true
+  - scope:
+      path: docs
+    values:
+      layout: docs
+
+optional_front_matter:
+  remove_originals: true
+
+include:
+  - README.md

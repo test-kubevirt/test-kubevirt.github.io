@@ -20,7 +20,8 @@
               <input type="text" id="search-input" class="docs-search--input" placeholder="Type to search">
               <ul id="results-container" class="docs-search--container"></ul>
             </div>
-            {% include sidebar-docs.html %}
+            {% capture sb_include %}{% include sidebar.md %}{% endcapture %}
+            {{ sb_include | replace: "(", "(/docs/" | replace: ".md)", ")" | markdownify }}
           </div>
           <div class="col-sm-12 col-md-8 col-lg-8 docs">
             {{ content }}
